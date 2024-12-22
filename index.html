@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login Page</h2>
+    <form id="loginForm">
+        <label for="username">ID:</label>
+        <input type="text" id="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        const validUser = {
+            username: "admin777",  // 填写你设定的ID
+            password: "777774"  // 填写你设定的密码
+        };
+
+        const form = document.getElementById("loginForm");
+
+        form.onsubmit = function(event) {
+            event.preventDefault();  // 防止页面刷新
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === validUser.username && password === validUser.password) {
+                // 如果用户名和密码正确，跳转到Google Sheets链接
+                window.location.href = "https://docs.google.com/spreadsheets/d/1EaW7OxG7KArbVlXrG02xCnhDiaaIr7ipSvnfs18pUyM/edit";  // 将链接中的 yourSheetID 替换为你自己的Google Sheets链接
+            } else {
+                alert("Invalid ID or Password.");
+            }
+        };
+    </script>
+</body>
+</html>
